@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!-- >
+配置spring ioc 容器位置
+<-->
+          <context-param>
+              <param-name>contextConfigLocation</param-name>
+              <param-value>classpath:applicationContext.xml
+                  classpath:applicationContext-*.xml
+              </param-value>
+          </context-param>
+
+
+          <!-- >
+          配置listener位置 listener 监视tomcat 起動すれば、コンテナをインスタンス化する。
+          <-->
+          <listener>
+              <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+          </listener>
+
+          <servlet>
+              <display-name>QueryStudentByIdServelet</display-name>
+              <servlet-name>QueryStudentByIdServelet</servlet-name>
+              <servlet-class>org.lanqiao.servlet.QueryStudentByIdServelet</servlet-class>
+          </servlet>
+          <servlet-mapping>
+               <servlet-name>QueryStudentByIdServelet</servlet-name>
+               <url-pattern>/QueryStudentByIdServelet</url-pattern>
+          </servlet-mapping>
+
+</web-app>
